@@ -1,5 +1,3 @@
-import nltk
-
 """
 ord(char) changes letter -> number
 chr(num) changes number -> letter
@@ -81,20 +79,87 @@ def decrypt(encryptedText, key):
     return encrypt(encryptedText, -key)
 
 
+# -------------------------------------------------------------------------------
+
+import nltk
+
+nltk.download("words", quiet=True)
+nltk.download("names", quiet=True)
+
+from nltk.corpus import words, names
+
+word_list = words.words()
+name_list = names.words()
+# print(word_list)
+# print(name_list)
+
+
 def crack(encrypted_string):
-    pass
+    """
+
+    - declare words_list = encrypted_string split into a list of words >> similar to javascript .split(' ')
+    - declare highest_word_count = the combination with the highest word count. Initialize this with 0
+    - declare most_probable_key = the key that gave us the highest word count
+
+    ** there are 25 other possible combinations that could encrypt the string
+    ** use encrypt/decrypt(should not matter which one) to test the other 25 combinations using keys 1-25
+
+      for x in range(1,25):
+
+        declare count = 0
+        for word in words_list
+            if decrypted(word, x) in word_list or decrypted(word,x) in name_list:
+                count += 1
+
+        if count > highest_word_count:
+            highest_word_count = count
+            most_probable_key = x
+
+
+        declare ratio = highest_word_count / word_list_length
+
+        ** now we have the ratio, and the most probable key
+        - we can print the ratio and the decrypted string
+        - or whatever we're supposed to do in the instructions
+    """
+    encrypted_list = encrypted_string.split()
+    highest_word_count = 0
+    most_probable_key = 0
+
+    for x in range(1, 25):
+
+        count = 0
+        for word in encrypted_list:
+            if encrypt(word, x) in word_list or encrypt(word, x) in name_list:
+                count += 1
+
+        if count > highest_word_count:
+            highest_word_count = count
+            most_probable_key = x
+
+    ratio = highest_word_count / len(encrypted_list)
+    decrypted_word = encrypt(encrypted_string, x)
+
+    return f"Decryption Probability: {ratio}, Decrypted Word: {decrypted_word}"
 
 
 if __name__ == "__main__":
 
-    input1 = "ABCD"
-    input2 = "abcd"
-    input3 = "ABab"
-    input4 = "AB ab AB cd dfadf  fasdf"
-    input5 = "Hello World. We did it."
+    # input1 = "ABCD"
+    # input2 = "abcd"
+    # input3 = "ABab"
+    # input4 = "AB ab AB cd dfadf  fasdf"
+    # input5 = "Hello World. We did it."
 
-    result1 = encrypt(input5, 27)
-    print(result1)
+    # result1 = encrypt(input5, 27)
+    # print(result1)
 
-    result2 = decrypt(result1, 27)
-    print(result2)
+    # result2 = decrypt(result1, 27)
+    # print(result2)
+
+    real_sentence = "It was the best of times, it was the worst of times."
+    encrypted = encrypt(real_sentence, 18)
+
+    print(encrypted)
+    result6 = crack(encrypted)
+    print(result6)
