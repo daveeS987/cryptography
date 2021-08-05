@@ -1,51 +1,47 @@
 import nltk
 
 """
-ord changes letters to number
-chr changes number to letter
+ord(char) changes letter -> number
+chr(num) changes number -> letter
 
 A - 65
 Z - 90
 a - 97
 z - 122
-' '-32
 
 - encrypt(‘abc’,1) would return ‘bcd’ 
 - encrypt(‘abc’, 10) would return ‘klm’
 - shifts that exceed 26 should wrap around
   - encrypt(‘abc’,27) would return ‘bcd’
 
-function
-- check if key is greater than 25
-  - if it is convert key to
+def encrypt function
 
   delcare result string
 - iterate through each letter
 
-
-    - declare converted = ord(letter)
+    - declare int_char = ord(letter)
     - check for lower or uppercase
     - if LOWERCASE
-      (this means converted between 97-122)
-      - changed = converted + key
-      - if changed is greater than 122
-          - find out the difference beween converted and 122
-          - modulo that difference 25 or 26
+      (this means int_char between 97-122)
+      - keyed = int_char + key
+      - if keyed is greater than 122
+          - find out the difference beween keyed and 122
+          - modulo that difference by 26
           - add that difference to 97
-          - then we have the encrypted letter
+          - push the result to result string
 
 
     - if uppercase
-      (this means converted between 65-90)
-      - changed = converted + key
-      - if changed is greater than 90
-          - find out the differenc between converted and 90
+      (this means int_char between 65-90)
+      - keyed = int_char + key
+      - if keyed is greater than 90
+          - find out the difference between keyed and 90
           - modulo that difference
           - add the difference to 65
-          - then the the encrypted letter. 
+          - push the result to result string
 
-    - if it neither
-      just add the character
+    - if its neither
+      just add the character to result string
 
 """
 
@@ -54,27 +50,25 @@ def encrypt(plaintext, key):
     string = ""
 
     for char in plaintext:
-        converted = ord(char)
+        int_char = ord(char)
 
-        if converted >= 97 and converted <= 122:
-            added = converted + key
-            if added > 122 or added < 97:
-                difference = added - 123
+        if int_char >= 97 and int_char <= 122:
+            keyed = int_char + key
+            if keyed > 122 or keyed < 97:
+                difference = keyed - 123
                 modulo = difference % 26
-                modadd = 97 + modulo
-                string += chr(modadd)
+                string += chr(97 + modulo)
             else:
-                string += chr(added)
+                string += chr(keyed)
 
-        elif converted >= 65 and converted <= 90:
-            added = converted + key
-            if added > 90 or added < 65:
-                difference = added - 91
+        elif int_char >= 65 and int_char <= 90:
+            keyed = int_char + key
+            if keyed > 90 or keyed < 65:
+                difference = keyed - 91
                 modulo = difference % 26
-                modadd = 65 + modulo
-                string += chr(modadd)
+                string += chr(65 + modulo)
             else:
-                string += chr(added)
+                string += chr(keyed)
 
         else:
             string += char
@@ -92,11 +86,10 @@ if __name__ == "__main__":
     input2 = "abcd"
     input3 = "ABab"
     input4 = "AB ab AB cd dfadf  fasdf"
-
     input5 = "Hello World. We did it."
 
-    result1 = encrypt(input5, 1453)
+    result1 = encrypt(input5, 27)
     print(result1)
 
-    result2 = decrypt(result1, 1453)
+    result2 = decrypt(result1, 27)
     print(result2)
