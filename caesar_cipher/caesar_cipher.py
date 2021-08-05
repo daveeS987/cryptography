@@ -29,7 +29,6 @@ def encrypt function
           add that difference to 97
           push the result to result string
 
-
     if UPPERCASE
       (this means int_char between 65-90)
       keyed = int_char + key
@@ -49,10 +48,9 @@ def encrypt(plaintext, key):
     string = ""
 
     for char in plaintext:
-        int_char = ord(char)
 
-        if int_char >= 97 and int_char <= 122:
-            keyed = int_char + key
+        if char.islower():
+            keyed = ord(char) + key
             if keyed > 122 or keyed < 97:
                 difference = keyed - 123
                 modulo = difference % 26
@@ -60,8 +58,8 @@ def encrypt(plaintext, key):
             else:
                 string += chr(keyed)
 
-        elif int_char >= 65 and int_char <= 90:
-            keyed = int_char + key
+        elif char.isupper():
+            keyed = ord(char) + key
             if keyed > 90 or keyed < 65:
                 difference = keyed - 91
                 modulo = difference % 26
