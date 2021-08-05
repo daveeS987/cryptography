@@ -126,7 +126,7 @@ def crack(encrypted_string):
 
         count = 0
         for word in encrypted_words_list:
-            if decrypt(word, x) in word_list or decrypt(word, x) in name_list:  # name_list - line 93
+            if decrypt(word, x) in word_list or decrypt(word, x) in name_list:  # name_list - line 90
                 count += 1
 
         if count > highest_word_count:
