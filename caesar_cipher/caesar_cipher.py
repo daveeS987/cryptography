@@ -95,9 +95,9 @@ name_list = names.words()
 def crack(encrypted_string):
     """
 
-    - declare words_list = encrypted_string split into a list of words
+    - declare encrypted_words_list = encrypted_string split into a list of words
     - declare highest_word_count = the combination with the highest word count. Initialize this with 0
-    - declare most_probable_key = the key that gave us the highest word count
+    - declare most_probable_key = the key that gives us the highest word count
 
     ** there are 25 other possible combinations that could encrypt the string
     ** use encrypt/decrypt(should not matter which one) to test the other 25 combinations using keys 1-26
@@ -105,7 +105,7 @@ def crack(encrypted_string):
       for x in range(1,26):
 
         declare count = 0
-        for word in words_list
+        for word in encrypted_words_list
             if decrypted(word, x) in word_list or decrypted(word,x) in name_list:
                 count += 1
 
@@ -120,22 +120,22 @@ def crack(encrypted_string):
         - we can print the ratio and the decrypted string
         - or whatever we're supposed to do in the instructions
     """
-    encrypted_list = encrypted_string.split()
+    encrypted_words_list = encrypted_string.split()
     highest_word_count = 0
     most_probable_key = 0
 
     for x in range(1, 26):
 
         count = 0
-        for word in encrypted_list:
-            if decrypt(word, x) in word_list or decrypt(word, x) in name_list:
+        for word in encrypted_words_list:
+            if decrypt(word, x) in word_list or decrypt(word, x) in name_list:  # name_list - line 93
                 count += 1
 
         if count > highest_word_count:
             highest_word_count = count
             most_probable_key = x
 
-    probability = highest_word_count / len(encrypted_list) * 100
+    probability = highest_word_count / len(encrypted_words_list) * 100
     decrypted_word = decrypt(encrypted_string, most_probable_key)
 
     print(f"Decryption Probability: {probability}%")
