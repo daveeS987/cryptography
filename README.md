@@ -9,6 +9,8 @@ Create a method to encrypt a message that can be decrypted when supplied with co
 ## Links & Resources
 
 - [Lab Pull Request](https://github.com/daveeS987/cryptography/pull/1)
+- [See The Code](./caesar_cipher/caesar_cipher.py)
+- [See The Tests](./tests/test_caesar_cipher.py)
 
 ## Feature Tasks and Requirements
 
@@ -28,7 +30,7 @@ Create a method to encrypt a message that can be decrypted when supplied with co
 - In order to accomplish a certain task you’ll need access to a corpus of English words.
   - A search on something like python list of english words should get you going.
 
-### User Acceptance Tests
+## User Acceptance Tests
 
 - encrypt a string with a given shift
 - decrypt a previously encrypted string with the same shift

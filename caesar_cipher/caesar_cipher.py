@@ -100,9 +100,9 @@ def crack(encrypted_string):
     - declare most_probable_key = the key that gave us the highest word count
 
     ** there are 25 other possible combinations that could encrypt the string
-    ** use encrypt/decrypt(should not matter which one) to test the other 25 combinations using keys 1-25
+    ** use encrypt/decrypt(should not matter which one) to test the other 25 combinations using keys 1-26
 
-      for x in range(1,25):
+      for x in range(1,26):
 
         declare count = 0
         for word in words_list
