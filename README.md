@@ -4,11 +4,11 @@ Create a method to encrypt a message that can be decrypted when supplied with co
 
 ## Author: Davee Sok
 
-### Collaborators: Daniel Dills, Prabin Singh, Wondwosedn Tsige, Michael Ryan
+### Collaborators: Daniel Dills, Prabin Singh, Wondwosen Tsige, Michael Ryan
 
 ## Links & Resources
 
-- [Lab Pull Request]()
+- [Lab Pull Request](https://github.com/daveeS987/cryptography/pull/1)
 
 ## Feature Tasks and Requirements
 
