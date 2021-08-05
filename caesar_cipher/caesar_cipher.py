@@ -112,11 +112,11 @@ def crack(encrypted_string):
             most_probable_key = x
 
 
-        declare ratio = highest_word_count / word_list_length
+      declare ratio = highest_word_count / word_list_length
 
-        ** now we have the ratio, and the most probable key
-        - we can print the ratio and the decrypted string
-        - or whatever we're supposed to do in the instructions
+      ** now we have the ratio, and the most probable key
+      - we can print the ratio and the decrypted string
+      - or whatever we're supposed to do in the instructions
     """
     encrypted_words_list = encrypted_string.split()
     highest_word_count = 0
