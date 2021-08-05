@@ -1,4 +1,4 @@
-# Cryptography Lab
+# Cryptography Lab - Caesar Cipher
 
 Create a method to encrypt a message that can be decrypted when supplied with corresponding key. Also devise a way to decipher the encrypted message even when you do not have the key.
 
