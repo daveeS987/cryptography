@@ -16,31 +16,32 @@ z - 122
 
 def encrypt function
 
-  delcare result string
-- iterate through each letter
+  declare result string
+  iterate through each letter 
 
-    - declare int_char = ord(letter)
-    - check for lower or uppercase
-    - if LOWERCASE
+    declare int_char = ord(letter)
+    check for lower or uppercase
+    
+    if LOWERCASE
       (this means int_char between 97-122)
-      - keyed = int_char + key
-      - if keyed is greater than 122
-          - find out the difference beween keyed and 122
-          - modulo that difference by 26
-          - add that difference to 97
-          - push the result to result string
+      keyed = int_char + key
+      if keyed is greater than 122
+          find out the difference beween keyed and 122
+          modulo that difference by 26
+          add that difference to 97
+          push the result to result string
 
 
-    - if uppercase
+    if UPPERCASE
       (this means int_char between 65-90)
-      - keyed = int_char + key
-      - if keyed is greater than 90
-          - find out the difference between keyed and 90
-          - modulo that difference
-          - add the difference to 65
-          - push the result to result string
+      keyed = int_char + key
+      if keyed is greater than 90
+          find out the difference between keyed and 90
+          modulo that difference
+          add the difference to 65
+          push the result to result string
 
-    - if its neither
+    if its neither
       just add the character to result string
 
 """
@@ -78,6 +79,10 @@ def encrypt(plaintext, key):
 
 def decrypt(encryptedText, key):
     return encrypt(encryptedText, -key)
+
+
+def crack(encrypted_string):
+    pass
 
 
 if __name__ == "__main__":
